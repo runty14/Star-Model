@@ -7,3 +7,7 @@
 https://ui.adsabs.harvard.edu/abs/1944PCopO.139....1S/abstract
 
 В статье 303 есть ссылка на 2 работы Wildt Rupert, обе работы содержат "разработку" методов для вычисления p, p_{e}, хи(Роселадовское) как функции тау ( https://ui.adsabs.harvard.edu/abs/1939ApJ....90..611W/abstract , https://ui.adsabs.harvard.edu/abs/1939ApJ....89..295W/abstract ) 
+
+
+https://articles.adsabs.harvard.edu/pdf/1979ApJS...40....1K - Kurucz R. (KUR79), 1979, Aph. J.SuppL, vol. 40, p.l. программа для моделей 
+Kurucz R. (KUR94), 1994, CD-ROM 1 "Atomic date for opacity calculations". -
