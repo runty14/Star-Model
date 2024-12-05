@@ -1,38 +1,7 @@
 import numpy as np
-from scipy.integrate import RK45
 
-
-
-# # Росселендоский средний коэф поглощения
-# hi = []
-#
-# # Глубина
-# dz = []
-#
-# # Оптическая(Росселандовская) толщина
-# dtau_R = -hi * dz
-#
-# Начальные параметры
-Teff = 5770
-g = np.exp(4.44)
-Pg0 = 2.940
-qtau = []
-tau = []
-
-
-# Начальное распределение температуры
-def T0_pow4(Teff, tau, qtau):
-    return np.pow((3. / 4) * np.pow(Teff, 4) * (tau + qtau), 0.25)
-
-# Массив температур по глубинам (начальные условия)
-T = T0_pow4(Teff, tau, qtau)
-
-g0 = g[0]
-# Давление электронов
-teta = 5040. / T[0]
-log_Pe0 = -2.90 + 0.85 * np.log(g0) - 1.2 * teta
-
-k = 0
+# Constant of Boltzmann
+k = 1.38e-23
 def formulaSaha(u_rplus1, u_r, Temp, I_r):
     mult1 = 0.333
     mult2 = 2 * u_rplus1 / u_r
@@ -148,37 +117,4 @@ for i in countPlasts:
         Pe_prev = Pe
         Pe = search_Pe(Pe)
         countIter += 1
-
-# arr1 = range(5)
-# arr2 = range(5)
-# print(np.sum(np.multiply(arr1, arr2)))
-# Что делать с уранвение гидростатического равновесия ?
-# Использовать разные частоты или Серая атмосфера?
-# хи зависит от частоты??
-# ?
-
-# def searchHi (dtau):
-#
-#
-# def searchP (t, hi):
-#     return g / hi
-#
-# P0 = tau * g / hi
-#
-# sol = RK45(fun=searchP, t0=0, y0=, t_bound=200, max_step=dt)
-# while sol.status != 'finished':
-#     try:
-#         sol.step()
-#         _t = sol.t
-#         y = sol.y
-#         y_arr.append(y)
-#
-#         t_arr.append(_t)
-#     except RuntimeError:
-#         print('beep')
-#         break
-# # y0 = y
-# y_arr = np.array(y_arr)
-#
-#
 
