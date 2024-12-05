@@ -1,5 +1,9 @@
 import numpy as np
 
+# Начальное распределение температуры
+def T0_pow4(Teff, tau, qtau):
+    return np.pow((3. / 4) * np.pow(Teff, 4) * (tau + qtau), 0.25)
+
 # Constant of Boltzmann
 k = 1.38e-23
 def formulaSaha(u_rplus1, u_r, Temp, I_r):
@@ -62,6 +66,15 @@ def search_dPe(Pg0, Pe_prev, dEdPe, E):
 def search_Pe(Pe_prev, dPe):
     return Pe_prev + dPe
 
+# Начальные параметры
+Teff = 5770
+g = np.exp(4.44)
+Pg0 = 2.940
+qtau = []
+tau = []
+
+# Массив температур по глубинам (начальные условия)
+T = T0_pow4(Teff, tau, qtau)
 
 countPlasts = 20
 # Cycle for each plast
@@ -107,7 +120,7 @@ for i in countPlasts:
     Pe0 = search_Pe0(Pg0, E)
     Pe = Pe0
     Pe_prev = Pe0 + 1
-    C = 0.333 * np.pow(T, 2.5)
+    C = 0.333 * np.pow(Temp, 2.5)
 
     countIter = 0
     err = 1e-7
